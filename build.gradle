@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'com.diffplug.gradle.spotless' version '3.24.3'
+    id 'com.github.ben-manes.versions' version '0.25.0'
+}
+
+group 'com.github.michaelruocco'
+version '1.0.0'
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    testCompileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.10.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
+
+    testCompile 'org.assertj:assertj-core:3.13.2'
+    testCompile 'nl.jqno.equalsverifier:equalsverifier:3.1.10'
+    testCompile 'com.github.michaelruocco:file-loader:5.0.1'
+    testCompile 'net.javacrumbs.json-unit:json-unit-assertj:2.9.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+spotless {
+    java {
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        indentWithSpaces(4)
+        endWithNewline()
+
+        replace      'Not enough space after if', 'if(', 'if ('
+        replaceRegex 'Too much space after if', 'if +\\(', 'if ('
+
+        replace      'Not enough space after for', 'for(', 'for ('
+        replaceRegex 'Too much space after for', 'for +\\(', 'for ('
+
+        replace      'Not enough space after while', 'while(', 'while ('
+        replaceRegex 'Too much space after while', 'while +\\(', 'while ('
+    }
+}
