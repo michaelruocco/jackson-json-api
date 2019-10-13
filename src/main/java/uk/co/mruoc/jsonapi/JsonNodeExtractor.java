@@ -4,6 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class JsonNodeExtractor {
 
+    private JsonNodeExtractor() {
+        // utility class
+    }
+
     public static JsonNode extractDataNode(final JsonNode node) {
         return node.get("data");
     }
