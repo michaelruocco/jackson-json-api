@@ -1,12 +1,7 @@
 language: java
+jdk: openjdk8
 install: true
 sudo: false
-
-jdk:
-  - openjdk8
-
-script:
-  - ./gradlew check --stacktrace
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -22,9 +17,9 @@ after_success:
 stages:
   - name: build
   - name: snapshot
-  if: branch = master
+    if: branch = master
   - name: release
-  if: branch = release
+    if: branch = release
 
 jobs:
   include:
