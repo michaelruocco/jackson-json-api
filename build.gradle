@@ -146,9 +146,6 @@ bintray {
             name = project.version
             desc = project.version
             released = new Date()
-            gpg {
-                sign = true
-            }
         }
     }
 }
