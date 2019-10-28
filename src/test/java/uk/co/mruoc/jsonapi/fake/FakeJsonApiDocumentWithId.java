@@ -1,15 +1,16 @@
 package uk.co.mruoc.jsonapi.fake;
 
-import uk.co.mruoc.jsonapi.JsonApiDocumentWithId;
+import uk.co.mruoc.jsonapi.JsonApiDataItem;
+import uk.co.mruoc.jsonapi.JsonApiDocument;
 
-public class FakeJsonApiDocumentWithId extends JsonApiDocumentWithId<FakeAttributes> {
+public class FakeJsonApiDocumentWithId extends FakeJsonApiDocument {
 
     public FakeJsonApiDocumentWithId() {
-        this("fake-attributes-type", new FakeAttributes());
+        this(new FakeAttributes());
     }
 
-    FakeJsonApiDocumentWithId(final String type, final FakeAttributes attributes) {
-        super(attributes.getId(), type, attributes);
+    private FakeJsonApiDocumentWithId(final FakeAttributes attributes) {
+        super(new JsonApiDataItem<>(attributes.getId().toString(), "fake-attributes-type", attributes));
     }
 
 }

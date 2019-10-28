@@ -5,11 +5,15 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import java.io.IOException;
+import java.util.Optional;
 
-public abstract class AbstractJsonApiDocumentSerializer<T extends JsonApiDocument> extends StdSerializer<T> {
+public class JsonApiDocumentSerializer<A, T extends JsonApiDocument<A>> extends StdSerializer<T> {
 
-    protected AbstractJsonApiDocumentSerializer(final Class<T> type) {
-        super(type);
+    private final Class<A> attributesType;
+
+    public JsonApiDocumentSerializer(final Class<T> documentType, final Class<A> attributesType) {
+        super(documentType);
+        this.attributesType = attributesType;
     }
 
     @Override
@@ -17,13 +21,15 @@ public abstract class AbstractJsonApiDocumentSerializer<T extends JsonApiDocumen
         json.writeStartObject();
         json.writeFieldName("data");
         json.writeStartObject();
+        final Optional<String> id = document.getId();
+        if (id.isPresent()) {
+            json.writeStringField("id", id.get());
+        }
         json.writeStringField("type", document.getType());
         json.writeFieldName("attributes");
-        writeAttributes(document, json, provider);
+        provider.defaultSerializeValue(attributesType.cast(document.getAttributes()), json);
         json.writeEndObject();
         json.writeEndObject();
     }
-
-    protected abstract void writeAttributes(T document, final JsonGenerator json, final SerializerProvider provider) throws IOException;
 
 }

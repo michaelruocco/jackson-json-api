@@ -9,7 +9,7 @@ class JsonApiDocumentTest {
     private static final String TYPE = "fake-type";
     private static final String ATTRIBUTES = "fake-attributes";
 
-    private final JsonApiDocument<Object> item = new JsonApiDocument<>(TYPE, ATTRIBUTES);
+    private final JsonApiDocument<Object> item = new JsonApiDocument<>(new JsonApiDataItem<>(TYPE, ATTRIBUTES));
 
     @Test
     void shouldReturnAttributes() {
