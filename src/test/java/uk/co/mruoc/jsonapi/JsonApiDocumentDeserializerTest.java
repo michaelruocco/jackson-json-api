@@ -3,6 +3,7 @@ package uk.co.mruoc.jsonapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
+import uk.co.mruoc.jsonapi.fake.DefaultFakeAttributes;
 import uk.co.mruoc.jsonapi.fake.FakeJsonApiDocument;
 import uk.co.mruoc.jsonapi.fake.FakeJsonApiModule;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
-class AbstractJsonApiDocumentDeserializerTest {
+class JsonApiDocumentDeserializerTest {
 
     private static final ObjectMapper MAPPER = buildMapper();
 
@@ -20,7 +21,16 @@ class AbstractJsonApiDocumentDeserializerTest {
 
         final FakeJsonApiDocument document = MAPPER.readValue(json, FakeJsonApiDocument.class);
 
-        assertThatJson(document).isEqualTo(new FakeJsonApiDocument());
+        assertThatJson(document).isEqualTo(new FakeJsonApiDocument(new DefaultFakeAttributes(null)));
+    }
+
+    @Test
+    void shouldDeserializeJsonApiDocumentWithId() throws IOException {
+        final String json = ContentLoader.loadContentFromClasspath("fake-attributes-document-with-string-id.json");
+
+        final FakeJsonApiDocument document = MAPPER.readValue(json, FakeJsonApiDocument.class);
+
+        assertThatJson(document).isEqualTo(new FakeJsonApiDocument(new DefaultFakeAttributes()));
     }
 
     private static ObjectMapper buildMapper() {

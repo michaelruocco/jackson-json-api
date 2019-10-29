@@ -1,23 +1,13 @@
 package uk.co.mruoc.jsonapi;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-import java.util.Optional;
-
+@RequiredArgsConstructor
+@Getter
 public class JsonApiDocument<T> {
 
     private final JsonApiDataItem<T> data;
-
-    public JsonApiDocument(final JsonApiDataItem<T> data) {
-        this.data = data;
-    }
-
-    public Optional<String> getId() {
-        return data.getId();
-    }
-
-    public String getType() {
-        return data.getType();
-    }
 
     public T getAttributes() {
         return data.getAttributes();

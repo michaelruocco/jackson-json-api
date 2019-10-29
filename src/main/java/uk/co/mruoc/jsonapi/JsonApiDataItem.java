@@ -2,6 +2,7 @@ package uk.co.mruoc.jsonapi;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -9,9 +10,10 @@ import java.util.Optional;
 @Getter
 @EqualsAndHashCode
 @RequiredArgsConstructor
+@NoArgsConstructor(force = true)
 public class JsonApiDataItem<T> {
 
-    private final String id;
+    private final Object id;
     private final String type;
     private final T attributes;
 
@@ -19,7 +21,7 @@ public class JsonApiDataItem<T> {
         this(null, type, attributes);
     }
 
-    public Optional<String> getId() {
+    public Optional<Object> getId() {
         return Optional.ofNullable(id);
     }
 
