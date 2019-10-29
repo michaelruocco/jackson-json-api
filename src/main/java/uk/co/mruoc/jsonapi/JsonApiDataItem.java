@@ -2,7 +2,6 @@ package uk.co.mruoc.jsonapi;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -10,7 +9,6 @@ import java.util.Optional;
 @Getter
 @EqualsAndHashCode
 @RequiredArgsConstructor
-@NoArgsConstructor(force = true)
 public class JsonApiDataItem<T> {
 
     private final Object id;
