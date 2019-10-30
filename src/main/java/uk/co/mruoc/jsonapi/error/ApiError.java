@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Getter
 @RequiredArgsConstructor
-public class ApiErrorItem {
+public class ApiError {
 
     private final UUID id;
     private final int status;

@@ -10,7 +10,7 @@ class BadRequestErrorItemTest {
     private static final String DETAIL = "my detail";
     private static final int STATUS = 400;
 
-    private final ApiErrorItem item = new BadRequestErrorItem(TITLE, DETAIL);
+    private final ApiError item = new BadRequestError(TITLE, DETAIL);
 
     @Test
     void shouldGenerateRandomIdIfNotProvided() {
@@ -24,7 +24,7 @@ class BadRequestErrorItemTest {
 
     @Test
     void shouldReturnDefaultTitleIfNotProvided() {
-        final ApiErrorItem noTitleItem = new BadRequestErrorItem(DETAIL);
+        final ApiError noTitleItem = new BadRequestError(DETAIL);
 
         assertThat(noTitleItem.getTitle()).isEqualTo("Bad Request");
     }

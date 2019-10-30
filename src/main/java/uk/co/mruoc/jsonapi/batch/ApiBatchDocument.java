@@ -1,7 +1,8 @@
-package uk.co.mruoc.jsonapi;
+package uk.co.mruoc.jsonapi.batch;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import uk.co.mruoc.jsonapi.ApiData;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -10,11 +11,11 @@ import java.util.stream.Collectors;
 @Data
 public class ApiBatchDocument<T> {
 
-    private final Collection<ApiDataItem<T>> data;
+    private final Collection<ApiData<T>> data;
 
     public Collection<T> getAttributes() {
         return data.stream()
-                .map(ApiDataItem::getAttributes)
+                .map(ApiData::getAttributes)
                 .collect(Collectors.toList());
     }
 

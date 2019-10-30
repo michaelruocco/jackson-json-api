@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public interface ApiErrorDocument {
 
-    Collection<ApiErrorItem> getErrors();
+    Collection<ApiError> getErrors();
 
     int getStatus();
 

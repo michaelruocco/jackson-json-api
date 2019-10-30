@@ -10,7 +10,7 @@ class NotFoundErrorItemTest {
     private static final String DETAIL = "my detail";
     private static final int STATUS = 404;
 
-    private final ApiErrorItem item = new NotFoundErrorItem(TITLE, DETAIL);
+    private final ApiError item = new NotFoundError(TITLE, DETAIL);
 
     @Test
     void shouldGenerateRandomIdIfNotProvided() {

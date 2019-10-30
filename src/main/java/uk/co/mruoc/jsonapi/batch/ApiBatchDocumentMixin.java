@@ -1,4 +1,4 @@
-package uk.co.mruoc.jsonapi;
+package uk.co.mruoc.jsonapi.batch;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

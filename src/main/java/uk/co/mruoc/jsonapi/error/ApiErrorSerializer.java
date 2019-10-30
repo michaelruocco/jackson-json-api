@@ -7,14 +7,14 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 import java.util.Map;
 
-public class ApiErrorItemSerializer extends StdSerializer<ApiErrorItem> {
+public class ApiErrorSerializer extends StdSerializer<ApiError> {
 
-    public ApiErrorItemSerializer() {
-        super(ApiErrorItem.class);
+    public ApiErrorSerializer() {
+        super(ApiError.class);
     }
 
     @Override
-    public void serialize(final ApiErrorItem item, final JsonGenerator json, final SerializerProvider provider) throws IOException {
+    public void serialize(final ApiError item, final JsonGenerator json, final SerializerProvider provider) throws IOException {
         json.writeStartObject();
         json.writeStringField("id", item.getId().toString());
         json.writeStringField("status", Integer.toString(item.getStatus()));

@@ -26,7 +26,7 @@ public class FakeApiDocumentFactory implements ApiDocumentFactory<FakeApiDocumen
     @Override
     public FakeApiDocument build(ApiDataDocumentRequest request) {
         final FakeAttributes fakeAttributes = toAttributes(request);
-        final FakeApiDataItem item = new FakeApiDataItem(fakeAttributes);
+        final FakeApiData item = new FakeApiData(fakeAttributes);
         return new FakeApiDocument(item);
     }
 

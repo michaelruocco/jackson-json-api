@@ -7,18 +7,18 @@ import java.util.stream.Collectors;
 
 public class ApiBatchErrorDocument implements ApiErrorDocument {
 
-    private final Collection<ApiErrorItem> errors;
+    private final Collection<ApiError> errors;
 
-    public ApiBatchErrorDocument(final ApiErrorItem... error) {
+    public ApiBatchErrorDocument(final ApiError... error) {
         this(Arrays.asList(error));
     }
 
-    public ApiBatchErrorDocument(final Collection<ApiErrorItem> errors) {
+    public ApiBatchErrorDocument(final Collection<ApiError> errors) {
         this.errors = errors;
     }
 
     @Override
-    public Collection<ApiErrorItem> getErrors() {
+    public Collection<ApiError> getErrors() {
         return errors;
     }
 
@@ -33,7 +33,7 @@ public class ApiBatchErrorDocument implements ApiErrorDocument {
 
     private List<Integer> getDistinctStatusValues() {
         return errors.stream()
-                .map(ApiErrorItem::getStatus)
+                .map(ApiError::getStatus)
                 .distinct()
                 .collect(Collectors.toList());
     }

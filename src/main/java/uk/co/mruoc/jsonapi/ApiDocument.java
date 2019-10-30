@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 public class ApiDocument<T> {
 
-    private final ApiDataItem<T> data;
+    private final ApiData<T> data;
 
     public T getAttributes() {
         return data.getAttributes();

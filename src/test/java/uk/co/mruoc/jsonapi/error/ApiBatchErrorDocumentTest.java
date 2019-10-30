@@ -8,8 +8,8 @@ class ApiBatchErrorDocumentTest {
 
     @Test
     void shouldReturnStatusFromErrorsIfErrorsHaveSameStatus() {
-        final ApiErrorItem error1 = new FakeInternalServerErrorItem();
-        final ApiErrorItem error2 = new FakeInternalServerErrorItem();
+        final ApiError error1 = new FakeInternalServerError();
+        final ApiError error2 = new FakeInternalServerError();
 
         final ApiErrorDocument document = new ApiBatchErrorDocument(error1, error2);
 
@@ -19,8 +19,8 @@ class ApiBatchErrorDocumentTest {
 
     @Test
     void shouldReturnMultiStatusIfErrorsDoNotHaveSameStatus() {
-        final ApiErrorItem error1 = new FakeNotFoundErrorItem();
-        final ApiErrorItem error2 = new FakeBadRequestErrorItem();
+        final ApiError error1 = new FakeNotFoundError();
+        final ApiError error2 = new FakeBadRequestError();
 
         final ApiErrorDocument document = new ApiBatchErrorDocument(error1, error2);
 

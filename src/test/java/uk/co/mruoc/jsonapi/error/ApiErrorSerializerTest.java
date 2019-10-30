@@ -8,13 +8,13 @@ import uk.co.mruoc.jsonapi.ApiModule;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
-class ApiErrorItemSerializerTest {
+class ApiErrorSerializerTest {
 
     private static final ObjectMapper MAPPER = buildMapper();
 
     @Test
     void shouldSerializeJsonApiErrorItem() throws JsonProcessingException {
-        final ApiErrorItem item = new FakeInternalServerErrorItem();
+        final ApiError item = new FakeInternalServerError();
 
         final String json = MAPPER.writeValueAsString(item);
 
@@ -24,7 +24,7 @@ class ApiErrorItemSerializerTest {
 
     @Test
     void shouldSerializeJsonApiErrorItemWithMetaData() throws JsonProcessingException {
-        final ApiErrorItem item = new FakeInternalServerErrorItemWithMeta();
+        final ApiError item = new FakeInternalServerErrorWithMeta();
 
         final String json = MAPPER.writeValueAsString(item);
 

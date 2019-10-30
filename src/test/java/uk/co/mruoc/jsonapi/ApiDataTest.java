@@ -6,12 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ApiDataItemTest {
+class ApiDataTest {
 
     private static final String TYPE = "fake-type";
     private static final String ATTRIBUTES = "fake-attributes";
 
-    private final ApiDataItem<Object> item = new ApiDataItem<>(TYPE, ATTRIBUTES);
+    private final ApiData<Object> item = new ApiData<>(TYPE, ATTRIBUTES);
 
     @Test
     void shouldReturnType() {
@@ -25,7 +25,7 @@ class ApiDataItemTest {
 
     @Test
     void shouldBeEqualIfAllValuesAreTheSame() {
-        EqualsVerifier.forClass(ApiDataItem.class)
+        EqualsVerifier.forClass(ApiData.class)
                 .suppress(Warning.STRICT_INHERITANCE)
                 .verify();
     }

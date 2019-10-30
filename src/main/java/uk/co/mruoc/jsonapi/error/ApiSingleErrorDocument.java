@@ -5,14 +5,14 @@ import java.util.Collections;
 
 public class ApiSingleErrorDocument implements ApiErrorDocument {
 
-    private final ApiErrorItem error;
+    private final ApiError error;
 
-    public ApiSingleErrorDocument(final ApiErrorItem error) {
+    public ApiSingleErrorDocument(final ApiError error) {
         this.error = error;
     }
 
     @Override
-    public Collection<ApiErrorItem> getErrors() {
+    public Collection<ApiError> getErrors() {
         return Collections.singleton(error);
     }
 

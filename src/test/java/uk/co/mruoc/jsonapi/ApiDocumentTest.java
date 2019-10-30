@@ -9,7 +9,7 @@ class ApiDocumentTest {
     private static final String TYPE = "fake-type";
     private static final String ATTRIBUTES = "fake-attributes";
 
-    private final ApiDocument<Object> item = new ApiDocument<>(new ApiDataItem<>(TYPE, ATTRIBUTES));
+    private final ApiDocument<Object> item = new ApiDocument<>(new ApiData<>(TYPE, ATTRIBUTES));
 
     @Test
     void shouldReturnAttributes() {

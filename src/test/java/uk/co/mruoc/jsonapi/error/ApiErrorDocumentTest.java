@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ApiErrorDocumentTest {
 
-    private final ApiErrorItem error = new FakeInternalServerErrorItem();
+    private final ApiError error = new FakeInternalServerError();
     private final ApiErrorDocument document = new ApiSingleErrorDocument(error);
 
     @Test
