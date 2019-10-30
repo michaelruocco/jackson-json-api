@@ -1,11 +1,11 @@
-package uk.co.mruoc.jsonapi;
+package uk.co.mruoc.jsonapi.batch;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
-import uk.co.mruoc.jsonapi.fake.DefaultFakeAttributes;
+import uk.co.mruoc.jsonapi.fake.DefaultFakeDomainObject;
 import uk.co.mruoc.jsonapi.fake.FakeApiBatchDocument;
 import uk.co.mruoc.jsonapi.fake.FakeApiModule;
 import uk.co.mruoc.jsonapi.fake.FakeApiNumericIdBatchDocument;
@@ -22,8 +22,8 @@ class ApiBatchDocumentSerializerTest {
     @Test
     void shouldSerializeBatchJsonApiDocumentWithoutId() throws JsonProcessingException {
         final FakeApiBatchDocument document = new FakeApiBatchDocument(
-                new DefaultFakeAttributes(null),
-                new DefaultFakeAttributes(null)
+                new DefaultFakeDomainObject(null),
+                new DefaultFakeDomainObject(null)
         );
 
         final String json = MAPPER.writeValueAsString(document);
@@ -35,8 +35,8 @@ class ApiBatchDocumentSerializerTest {
     @Test
     void shouldSerializeBatchJsonApiDocumentWithUuidId() throws JsonProcessingException {
         final FakeApiStringIdBatchDocument document = new FakeApiStringIdBatchDocument(
-                new DefaultFakeAttributes(UUID.fromString("94e65ed0-1334-4c78-8c8f-bfd12773d041")),
-                new DefaultFakeAttributes(UUID.fromString("3909018e-35d1-4196-9141-13a966005a67"))
+                new DefaultFakeDomainObject(UUID.fromString("94e65ed0-1334-4c78-8c8f-bfd12773d041")),
+                new DefaultFakeDomainObject(UUID.fromString("3909018e-35d1-4196-9141-13a966005a67"))
         );
 
         final String json = MAPPER.writeValueAsString(document);
@@ -48,8 +48,8 @@ class ApiBatchDocumentSerializerTest {
     @Test
     void shouldSerializeBatchJsonApiDocumentWithStringId() throws JsonProcessingException {
         final FakeApiStringIdBatchDocument document = new FakeApiStringIdBatchDocument(
-                new DefaultFakeAttributes("my-id-1"),
-                new DefaultFakeAttributes("my-id-2")
+                new DefaultFakeDomainObject("my-id-1"),
+                new DefaultFakeDomainObject("my-id-2")
         );
 
         final String json = MAPPER.writeValueAsString(document);
@@ -61,8 +61,8 @@ class ApiBatchDocumentSerializerTest {
     @Test
     void shouldSerializeBatchJsonApiDocumentWithNumericId() throws JsonProcessingException {
         final FakeApiNumericIdBatchDocument document = new FakeApiNumericIdBatchDocument(
-                new DefaultFakeAttributes(123456789),
-                new DefaultFakeAttributes(999999999)
+                new DefaultFakeDomainObject(123456789),
+                new DefaultFakeDomainObject(999999999)
         );
 
         final String json = MAPPER.writeValueAsString(document);

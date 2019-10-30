@@ -2,15 +2,11 @@ package uk.co.mruoc.jsonapi.fake;
 
 import uk.co.mruoc.jsonapi.ApiData;
 
-public class FakeApiData extends ApiData<FakeAttributes> {
+public class FakeApiData extends ApiData<FakeDomainObject> {
 
     private static final String TYPE = "fake-attributes-type";
 
-    public FakeApiData(final Object id, final FakeAttributes attributes) {
-        super(id,TYPE, attributes);
-    }
-
-    public FakeApiData(final FakeAttributes attributes) {
+    public FakeApiData(final FakeDomainObject attributes) {
         super(TYPE, attributes);
     }
 

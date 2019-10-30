@@ -7,19 +7,19 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public class FakeApiNumericIdBatchDocument extends ApiBatchDocument<FakeAttributes> {
+public class FakeApiNumericIdBatchDocument extends ApiBatchDocument<FakeDomainObject> {
 
-    public FakeApiNumericIdBatchDocument(final FakeAttributes... attributes) {
+    public FakeApiNumericIdBatchDocument(final FakeDomainObject... attributes) {
         this(Arrays.asList(attributes));
     }
 
-    public FakeApiNumericIdBatchDocument(final Collection<FakeAttributes> attributes) {
+    public FakeApiNumericIdBatchDocument(final Collection<FakeDomainObject> attributes) {
         super(toItems(attributes));
     }
 
-    private static Collection<ApiData<FakeAttributes>> toItems(Collection<FakeAttributes> collection) {
+    private static Collection<ApiData<FakeDomainObject>> toItems(Collection<FakeDomainObject> collection) {
         return collection.stream()
-                .map(attributes -> new FakeApiData(attributes.getId(), attributes))
+                .map(FakeApiDataWithId::new)
                 .collect(Collectors.toList());
     }
 

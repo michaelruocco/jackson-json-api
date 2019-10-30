@@ -12,11 +12,10 @@ public class FakeApiModule extends ApiModule {
     }
 
     public FakeApiModule(final Function<String, Object> idParser) {
-        setMixInAnnotation(FakeAttributes.class, FakeAttributesMixin.class);
+        setMixInAnnotation(FakeDomainObject.class, FakeDomainObjectMixin.class);
 
         addDeserializer(FakeApiBatchDocument.class, new FakeApiBatchDocumentDeserializer(new FakeApiBatchDocumentFactory(idParser)));
         addDeserializer(FakeApiDocument.class, new FakeApiDocumentDeserializer(new FakeApiDocumentFactory(idParser)));
-
     }
 
 }

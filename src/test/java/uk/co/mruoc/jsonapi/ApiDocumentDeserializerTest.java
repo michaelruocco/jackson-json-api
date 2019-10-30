@@ -3,7 +3,7 @@ package uk.co.mruoc.jsonapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
-import uk.co.mruoc.jsonapi.fake.DefaultFakeAttributes;
+import uk.co.mruoc.jsonapi.fake.DefaultFakeDomainObject;
 import uk.co.mruoc.jsonapi.fake.FakeApiDocument;
 import uk.co.mruoc.jsonapi.fake.FakeApiDocumentFactory;
 import uk.co.mruoc.jsonapi.fake.FakeApiModule;
@@ -22,7 +22,7 @@ class ApiDocumentDeserializerTest {
 
         final FakeApiDocument document = mapper.readValue(json, FakeApiDocument.class);
 
-        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeAttributes(null)));
+        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeDomainObject(null)));
     }
 
     @Test
@@ -32,7 +32,7 @@ class ApiDocumentDeserializerTest {
 
         final FakeApiDocument document = mapper.readValue(json, FakeApiDocument.class);
 
-        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeAttributes()));
+        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeDomainObject()));
     }
 
     @Test
@@ -42,7 +42,7 @@ class ApiDocumentDeserializerTest {
 
         final FakeApiDocument document = mapper.readValue(json, FakeApiDocument.class);
 
-        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeAttributes("my-id")));
+        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeDomainObject("my-id")));
     }
 
     @Test
@@ -52,7 +52,7 @@ class ApiDocumentDeserializerTest {
 
         final FakeApiDocument document = mapper.readValue(json, FakeApiDocument.class);
 
-        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeAttributes(123456789L)));
+        assertThat(document).isEqualTo(new FakeApiDocument(new DefaultFakeDomainObject(123456789L)));
     }
 
     private static ObjectMapper buildMapper(final Function<String, Object> idParser) {

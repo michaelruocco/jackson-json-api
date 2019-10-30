@@ -3,7 +3,7 @@ package uk.co.mruoc.jsonapi.fake;
 import com.fasterxml.jackson.databind.JsonNode;
 import uk.co.mruoc.jsonapi.ApiDataDocumentRequest;
 import uk.co.mruoc.jsonapi.ApiDocumentFactory;
-import uk.co.mruoc.jsonapi.fake.FakeAttributes.FakeAttributesBuilder;
+import uk.co.mruoc.jsonapi.fake.FakeDomainObject.FakeDomainObjectBuilder;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,10 +17,6 @@ public class FakeApiBatchDocumentFactory implements ApiDocumentFactory<FakeApiBa
 
     private final Function<String, Object> idParser;
 
-    public FakeApiBatchDocumentFactory() {
-        this(new UuidIdParser());
-    }
-
     public FakeApiBatchDocumentFactory(final Function<String, Object> idParser) {
         this.idParser = idParser;
     }
@@ -28,17 +24,17 @@ public class FakeApiBatchDocumentFactory implements ApiDocumentFactory<FakeApiBa
     @Override
     public FakeApiBatchDocument build(ApiDataDocumentRequest request) {
         final JsonNode dataNode = request.getDataNode();
-        final Collection<FakeAttributes> attributes = new ArrayList<>();
+        final Collection<FakeDomainObject> attributes = new ArrayList<>();
         for (final JsonNode dataItemNode : dataNode) {
             attributes.add(toAttributes(dataItemNode));
         }
         return new FakeApiBatchDocument(attributes);
     }
 
-    private FakeAttributes toAttributes(final JsonNode dataNode) {
+    private FakeDomainObject toAttributes(final JsonNode dataNode) {
         final Optional<JsonNode> idNode = extractIdNode(dataNode);
         final JsonNode attributesNode = extractAttributesNode(dataNode);
-        final FakeAttributesBuilder builder = FakeAttributes.builder()
+        final FakeDomainObjectBuilder builder = FakeDomainObject.builder()
                 .value1(attributesNode.get("value1").asText())
                 .value2(attributesNode.get("value2").asText());
         idNode.ifPresent(node -> builder.id(idParser.apply(node.asText())));

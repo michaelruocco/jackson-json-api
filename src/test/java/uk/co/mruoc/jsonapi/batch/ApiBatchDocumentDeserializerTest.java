@@ -1,9 +1,9 @@
-package uk.co.mruoc.jsonapi;
+package uk.co.mruoc.jsonapi.batch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
-import uk.co.mruoc.jsonapi.fake.DefaultFakeAttributes;
+import uk.co.mruoc.jsonapi.fake.DefaultFakeDomainObject;
 import uk.co.mruoc.jsonapi.fake.FakeApiBatchDocument;
 import uk.co.mruoc.jsonapi.fake.FakeApiDocumentFactory;
 import uk.co.mruoc.jsonapi.fake.FakeApiModule;
@@ -24,8 +24,8 @@ class ApiBatchDocumentDeserializerTest {
         final FakeApiBatchDocument document = mapper.readValue(json, FakeApiBatchDocument.class);
 
         assertThat(document).isEqualTo(new FakeApiBatchDocument(
-                new DefaultFakeAttributes(null),
-                new DefaultFakeAttributes(null)
+                new DefaultFakeDomainObject(null),
+                new DefaultFakeDomainObject(null)
         ));
     }
 
@@ -37,8 +37,8 @@ class ApiBatchDocumentDeserializerTest {
         final FakeApiBatchDocument document = mapper.readValue(json, FakeApiBatchDocument.class);
 
         assertThat(document).isEqualTo(new FakeApiBatchDocument(
-                new DefaultFakeAttributes(UUID.fromString("94e65ed0-1334-4c78-8c8f-bfd12773d041")),
-                new DefaultFakeAttributes(UUID.fromString("3909018e-35d1-4196-9141-13a966005a67"))
+                new DefaultFakeDomainObject(UUID.fromString("94e65ed0-1334-4c78-8c8f-bfd12773d041")),
+                new DefaultFakeDomainObject(UUID.fromString("3909018e-35d1-4196-9141-13a966005a67"))
         ));
     }
 
@@ -50,8 +50,8 @@ class ApiBatchDocumentDeserializerTest {
         final FakeApiBatchDocument document = mapper.readValue(json, FakeApiBatchDocument.class);
 
         assertThat(document).isEqualTo(new FakeApiBatchDocument(
-                new DefaultFakeAttributes("my-id-1"),
-                new DefaultFakeAttributes("my-id-2")
+                new DefaultFakeDomainObject("my-id-1"),
+                new DefaultFakeDomainObject("my-id-2")
         ));
     }
 
@@ -63,8 +63,8 @@ class ApiBatchDocumentDeserializerTest {
         final FakeApiBatchDocument document = mapper.readValue(json, FakeApiBatchDocument.class);
 
         assertThat(document).isEqualTo(new FakeApiBatchDocument(
-                new DefaultFakeAttributes(123456789L),
-                new DefaultFakeAttributes(999999999L)
+                new DefaultFakeDomainObject(123456789L),
+                new DefaultFakeDomainObject(999999999L)
         ));
     }
 
