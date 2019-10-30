@@ -1,10 +1,10 @@
 package uk.co.mruoc.jsonapi;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Getter
+@Data
 public class JsonApiDocument<T> {
 
     private final JsonApiDataItem<T> data;

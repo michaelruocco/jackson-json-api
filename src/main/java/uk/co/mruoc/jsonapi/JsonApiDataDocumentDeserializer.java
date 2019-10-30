@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import java.io.IOException;
 
-public class JsonApiDataDocumentDeserializer<D extends JsonApiDocument, A> extends StdDeserializer<D> {
+public class JsonApiDataDocumentDeserializer<D, A> extends StdDeserializer<D> {
 
     private final JsonApiDocumentFactory<D> documentFactory;
 
@@ -26,9 +26,6 @@ public class JsonApiDataDocumentDeserializer<D extends JsonApiDocument, A> exten
                 .context(context)
                 .rootNode(rootNode)
                 .dataNode(dataNode)
-                .id(dataNode.get("id"))
-                .type(dataNode.get("type").asText())
-                .attributesNode(dataNode.get("attributes"))
                 .build();
         return documentFactory.build(request);
     }

@@ -1,13 +1,11 @@
 package uk.co.mruoc.jsonapi;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
-@Getter
-@EqualsAndHashCode
+@Data
 @RequiredArgsConstructor
 public class JsonApiDataItem<T> {
 

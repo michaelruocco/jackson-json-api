@@ -10,8 +10,11 @@ public class JsonApiModule extends SimpleModule {
 
     public JsonApiModule() {
         setMixInAnnotation(JsonApiDocument.class, JsonApiDocumentMixin.class);
-        setMixInAnnotation(JsonApiDataItem.class, JsonApiDataItemMixin.class);
+        setMixInAnnotation(JsonApiBatchDocument.class, JsonApiBatchDocumentMixin.class);
         setMixInAnnotation(JsonApiErrorDocument.class, JsonApiErrorDocumentMixin.class);
+
+        setMixInAnnotation(JsonApiDataItem.class, JsonApiDataItemMixin.class);
+
         addSerializer(JsonApiErrorItem.class, new JsonApiErrorItemSerializer());
     }
 

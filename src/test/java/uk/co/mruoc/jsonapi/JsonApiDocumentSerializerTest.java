@@ -6,9 +6,7 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
 import uk.co.mruoc.jsonapi.fake.DefaultFakeAttributes;
-import uk.co.mruoc.jsonapi.fake.FakeAttributes;
 import uk.co.mruoc.jsonapi.fake.FakeJsonApiDocument;
-import uk.co.mruoc.jsonapi.fake.FakeJsonApiDocumentWithId;
 import uk.co.mruoc.jsonapi.fake.FakeJsonApiModule;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
@@ -18,18 +16,28 @@ class JsonApiDocumentSerializerTest {
     private static final ObjectMapper MAPPER = buildMapper();
 
     @Test
-    void shouldSerializeJsonApiDocument() throws JsonProcessingException {
-        final JsonApiDocument<FakeAttributes> document = new FakeJsonApiDocument(new DefaultFakeAttributes());
+    void shouldSerializeJsonApiDocumentWithId() throws JsonProcessingException {
+        final FakeJsonApiDocument document = new FakeJsonApiDocument(new DefaultFakeAttributes());
 
         final String json = MAPPER.writeValueAsString(document);
 
-        final String expectedJson = ContentLoader.loadContentFromClasspath("fake-attributes-document.json");
+        final String expectedJson = ContentLoader.loadContentFromClasspath("fake-attributes-document-without-id.json");
+        assertThatJson(json).isEqualTo(expectedJson);
+    }
+
+    @Test
+    void shouldSerializeJsonApiDocumentWithUuidId() throws JsonProcessingException {
+        final FakeJsonApiDocument document = new FakeJsonApiDocument("my-id", new DefaultFakeAttributes());
+
+        final String json = MAPPER.writeValueAsString(document);
+
+        final String expectedJson = ContentLoader.loadContentFromClasspath("fake-attributes-document-with-string-id.json");
         assertThatJson(json).isEqualTo(expectedJson);
     }
 
     @Test
     void shouldSerializeJsonApiDocumentWithStringId() throws JsonProcessingException {
-        final JsonApiDocument<FakeAttributes> document = new FakeJsonApiDocumentWithId();
+        final FakeJsonApiDocument document = new FakeJsonApiDocument("my-id", new DefaultFakeAttributes());
 
         final String json = MAPPER.writeValueAsString(document);
 
@@ -39,7 +47,7 @@ class JsonApiDocumentSerializerTest {
 
     @Test
     void shouldSerializeJsonApiDocumentWithNumericId() throws JsonProcessingException {
-        final JsonApiDocument<FakeAttributes> document = new FakeJsonApiDocument(123456789, new DefaultFakeAttributes());
+        final FakeJsonApiDocument document = new FakeJsonApiDocument(123456789, new DefaultFakeAttributes());
 
         final String json = MAPPER.writeValueAsString(document);
 
