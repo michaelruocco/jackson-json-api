@@ -2,7 +2,6 @@ package uk.co.mruoc.jsonapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
 import uk.co.mruoc.jsonapi.fake.DefaultFakeDomainObject;
@@ -60,7 +59,6 @@ class ApiDocumentSerializerTest {
 
     private static ObjectMapper buildMapper() {
         final ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new Jdk8Module());
         mapper.registerModule(new FakeApiModule());
         return mapper;
     }
