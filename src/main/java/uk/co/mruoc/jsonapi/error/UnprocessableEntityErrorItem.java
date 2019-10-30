@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
-public class UnprocessableEntityErrorItem extends JsonApiErrorItem {
+public class UnprocessableEntityErrorItem extends ApiErrorItem {
 
     private static final int STATUS = 422;
 

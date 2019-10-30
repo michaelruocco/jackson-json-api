@@ -10,7 +10,7 @@ class UnprocessableEntityErrorItemTest {
     private static final String DETAIL = "my detail";
     private static final int STATUS = 422;
 
-    private final JsonApiErrorItem item = new UnprocessableEntityErrorItem(TITLE, DETAIL);
+    private final ApiErrorItem item = new UnprocessableEntityErrorItem(TITLE, DETAIL);
 
     @Test
     void shouldGenerateRandomIdIfNotProvided() {

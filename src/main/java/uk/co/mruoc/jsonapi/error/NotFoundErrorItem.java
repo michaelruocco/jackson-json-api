@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
-public class NotFoundErrorItem extends JsonApiErrorItem {
+public class NotFoundErrorItem extends ApiErrorItem {
 
     private static final int STATUS = 404;
 

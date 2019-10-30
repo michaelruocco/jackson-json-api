@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
-public class InternalServerErrorItem extends JsonApiErrorItem {
+public class InternalServerErrorItem extends ApiErrorItem {
 
     private static final String TITLE = "Internal Server Error";
     private static final int STATUS = 500;

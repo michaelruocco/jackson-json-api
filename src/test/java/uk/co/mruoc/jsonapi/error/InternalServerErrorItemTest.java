@@ -9,7 +9,7 @@ class InternalServerErrorItemTest {
     private static final String DETAIL = "my detail";
     private static final int STATUS = 500;
 
-    private final JsonApiErrorItem item = new InternalServerErrorItem(DETAIL);
+    private final ApiErrorItem item = new InternalServerErrorItem(DETAIL);
 
     @Test
     void shouldGenerateRandomIdIfNotProvided() {

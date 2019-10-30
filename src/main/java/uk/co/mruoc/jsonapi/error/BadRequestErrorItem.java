@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
 
-public class BadRequestErrorItem extends JsonApiErrorItem {
+public class BadRequestErrorItem extends ApiErrorItem {
 
     private static final int STATUS = 400;
 
