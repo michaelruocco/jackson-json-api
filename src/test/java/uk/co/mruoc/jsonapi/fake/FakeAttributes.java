@@ -1,14 +1,13 @@
 package uk.co.mruoc.jsonapi.fake;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
+@NoArgsConstructor(force = true)
 @Data
 public class FakeAttributes {
 
-    private UUID id = UUID.fromString("94e65ed0-1334-4c78-8c8f-bfd12773d041");
-    private String value1 = "fake-value-1";
-    private String value2 = "fake-value-2";
+    private String value1;
+    private String value2;
 
 }

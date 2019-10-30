@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "id": "my-id-1",
+      "type": "fake-attributes-type",
+      "attributes": {
+        "value1": "fake-value-1",
+        "value2": "fake-value-2"
+      }
+    },
+    {
+      "id": "my-id-2",
+      "type": "fake-attributes-type",
+      "attributes": {
+        "value1": "fake-value-1",
+        "value2": "fake-value-2"
+      }
+    }
+  ]
+}
