@@ -7,12 +7,12 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 
 import java.io.IOException;
 
-public class ApiDataDocumentDeserializer<D, A> extends StdDeserializer<D> {
+public class ApiDocumentDeserializer<D> extends StdDeserializer<D> {
 
     private final ApiDocumentFactory<D> documentFactory;
 
-    public ApiDataDocumentDeserializer(final Class<D> type,
-                                       final ApiDocumentFactory<D> documentFactory) {
+    public ApiDocumentDeserializer(final Class<D> type,
+                                   final ApiDocumentFactory<D> documentFactory) {
         super(type);
         this.documentFactory = documentFactory;
     }

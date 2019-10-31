@@ -21,7 +21,7 @@ public class FakeApiBatchDocument extends ApiBatchDocument<FakeDomainObject> {
 
     private static Collection<ApiData<FakeDomainObject>> toItems(Collection<FakeDomainObject> collection) {
         return collection.stream()
-                .map(FakeApiDataWithId::new)
+                .map(FakeApiData::new)
                 .collect(Collectors.toList());
     }
 
