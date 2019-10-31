@@ -13,7 +13,13 @@ apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
 
 group 'com.github.michaelruocco'
-version '1.0.0-SNAPSHOT'
+
+scmVersion {
+    tag {
+        prefix = 'jackson-json-api'
+    }
+}
+project.version = scmVersion.version
 
 sourceCompatibility = 8
 targetCompatibility = 8
