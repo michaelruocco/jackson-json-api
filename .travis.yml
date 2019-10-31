@@ -4,7 +4,6 @@ sudo: false
 
 install:
   - git checkout $TRAVIS_BRANCH
-  - git fetch --tags
   - git status
   - git tag
 
