@@ -147,8 +147,8 @@ signing {
 }
 
 bintray {
-    user = System.getProperty('bintray.user')
-    key = System.getProperty('bintray.key')
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
     publications = ['mavenPublication']
 
     pkg {
