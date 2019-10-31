@@ -6,6 +6,7 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.8.4'
     id 'com.jfrog.bintray' version '1.8.4'
     id 'com.jfrog.artifactory' version '4.10.0'
+    id 'pl.allegro.tech.build.axion-release' version '1.10.2'
 }
 
 apply plugin: 'jacoco'
@@ -52,13 +53,13 @@ spotless {
         indentWithSpaces(4)
         endWithNewline()
 
-        replace      'Not enough space after if', 'if(', 'if ('
+        replace 'Not enough space after if', 'if(', 'if ('
         replaceRegex 'Too much space after if', 'if +\\(', 'if ('
 
-        replace      'Not enough space after for', 'for(', 'for ('
+        replace 'Not enough space after for', 'for(', 'for ('
         replaceRegex 'Too much space after for', 'for +\\(', 'for ('
 
-        replace      'Not enough space after while', 'while(', 'while ('
+        replace 'Not enough space after while', 'while(', 'while ('
         replaceRegex 'Too much space after while', 'while +\\(', 'while ('
     }
 }
