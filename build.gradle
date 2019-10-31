@@ -173,8 +173,8 @@ artifactory {
     publish {
         repository {
             repoKey = 'oss-snapshot-local'
-            username = System.getProperty('bintray.user')
-            password = System.getProperty('bintray.key')
+            username = System.getenv('BINTRAY_USER')
+            password = System.getenv('BINTRAY_KEY')
         }
         defaults {
             publications('mavenPublication')
