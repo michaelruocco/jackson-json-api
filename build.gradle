@@ -11,6 +11,7 @@ plugins {
 
 apply plugin: 'jacoco'
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 group 'com.github.michaelruocco'
 
@@ -139,6 +140,10 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    sign publishing.publications.mavenPublication
 }
 
 bintray {

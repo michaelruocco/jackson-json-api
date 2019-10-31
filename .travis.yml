@@ -1,9 +1,8 @@
-language: java
-jdk: openjdk8
 sudo: false
+language: java
 
-install:
-  - git checkout $TRAVIS_BRANCH
+jdk:
+  - openjdk8
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -14,24 +13,8 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
+script:
+  - ./gradlew clean spotlessApply build dependencyUpdates artifactoryPublish -x test -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$TRAVIS_BUILD_NUMBER
+
 after_success:
-    - ./gradlew jacocoTestReport coveralls
-
-stages:
-  - name: build
-  - name: snapshot
-    if: branch = master
-  - name: release
-    if: branch = release
-
-jobs:
-  include:
-    - stage: build
-      script: ./gradlew currentVersion spotlessCheck build dependencyUpdates
-    - stage: snapshot
-      script: ./gradlew artifactoryPublish -x test -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$TRAVIS_BUILD_NUMBER
-    - stage: release
-      script:
-        - >
-          ./gradlew release -Prelease.disableRemoteCheck -Prelease.customUsername=$GITHUB_TOKEN;
-          ./gradlew bintrayUpload -x test -Dbintray.user=$BINTRAY_USER -Dbintray.key=$BINTRAY_KEY -Dbuild.number=$TRAVIS_BUILD_NUMBER
+  - ./gradlew jacocoTestReport coveralls
