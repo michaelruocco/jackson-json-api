@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/michaelruocco/jackson-json-api.svg?branch=master)](https://travis-ci.org/michaelruocco/jackson-json-api)
 [![Coverage Status](https://coveralls.io/repos/github/michaelruocco/jackson-json-api/badge.svg?branch=master)](https://coveralls.io/github/michaelruocco/jackson-json-api?branch=master)
 [![Maven Central](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/github/michaelruocco/jackson-json-api/maven-metadata.xml.svg)](http://repo1.maven.org/maven2/com/github/michaelruocco/jackson-json-api)
+[ ![Download](https://api.bintray.com/packages/michaelruocco/maven/jackson-json-api/images/download.svg) ](https://bintray.com/michaelruocco/maven/jackson-json-api/_latestVersion)
 [![BCH compliance](https://bettercodehub.com/edge/badge/michaelruocco/jackson-json-api?branch=master)](https://bettercodehub.com/)
 
 This is a java library that aims at handling most of the boilerplate code
