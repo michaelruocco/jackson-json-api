@@ -1,11 +1,12 @@
 language: java
 jdk: openjdk8
-install: true
 sudo: false
 
-git:
-  depth: false
-  
+install:
+  - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
+  - cd $TRAVIS_REPO_SLUG
+  - git checkout $TRAVIS_BRANCH
+
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
