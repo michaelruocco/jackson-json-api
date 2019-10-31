@@ -3,10 +3,10 @@ jdk: openjdk8
 sudo: false
 
 install:
-  - git reset --hard
+  - git checkout $TRAVIS_BRANCH
   - git fetch --tags
   - git status
-  - git tags
+  - git tag
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
