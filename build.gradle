@@ -152,7 +152,6 @@ bintray {
         userOrg = 'michaelruocco'
         licenses = ['bsd']
         vcsUrl = 'https://github.com/michaelruocco/jackson-json-api.git'
-        publish = true
         version {
             name = project.version
             desc = project.version
