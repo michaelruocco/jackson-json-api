@@ -4,8 +4,6 @@ sudo: false
 
 install:
   - git checkout $TRAVIS_BRANCH
-  - git status
-  - git tag
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
