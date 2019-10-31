@@ -3,9 +3,8 @@ jdk: openjdk8
 sudo: false
 
 install:
-  - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
-  - cd $TRAVIS_REPO_SLUG
-  - git checkout $TRAVIS_BRANCH
+  - git reset --hard
+  - git status
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
