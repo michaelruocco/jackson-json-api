@@ -17,6 +17,8 @@ public class ApiModule extends SimpleModule {
         setMixInAnnotation(ApiBatchDocument.class, ApiBatchDocumentMixin.class);
         setMixInAnnotation(ApiBatchDocumentWithId.class, ApiBatchDocumentMixin.class);
         setMixInAnnotation(ApiErrorDocument.class, ApiErrorDocumentMixin.class);
+        setMixInAnnotation(ApiData.class, ApiDataMixin.class);
+        setMixInAnnotation(ApiDataWithId.class, ApiDataWithIdMixin.class);
 
         addSerializer(ApiError.class, new ApiErrorSerializer());
     }
