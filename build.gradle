@@ -1,11 +1,11 @@
 plugins {
     id 'java'
     id 'com.diffplug.gradle.spotless' version '3.25.0'
-    id 'com.github.ben-manes.versions' version '0.26.0'
+    id 'com.github.ben-manes.versions' version '0.27.0'
     id 'jacoco'
     id 'com.github.kt3k.coveralls' version '2.8.4'
     id 'com.jfrog.bintray' version '1.8.4'
-    id 'com.jfrog.artifactory' version '4.9.10'
+    id 'com.jfrog.artifactory' version '4.10.0'
 }
 
 apply plugin: 'jacoco'
@@ -33,10 +33,10 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.10.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
 
-    testCompile 'org.assertj:assertj-core:3.13.2'
+    testCompile 'org.assertj:assertj-core:3.14.0'
     testCompile 'nl.jqno.equalsverifier:equalsverifier:3.1.10'
     testCompile 'com.github.michaelruocco:file-loader:5.0.1'
-    testCompile 'net.javacrumbs.json-unit:json-unit-assertj:2.9.0'
+    testCompile 'net.javacrumbs.json-unit:json-unit-assertj:2.10.0'
     testCompile 'org.slf4j:slf4j-simple:1.7.28'
     testCompile 'org.mockito:mockito-core:3.1.0'
 }
@@ -61,6 +61,10 @@ spotless {
         replace      'Not enough space after while', 'while(', 'while ('
         replaceRegex 'Too much space after while', 'while +\\(', 'while ('
     }
+}
+
+jacoco {
+    toolVersion = '0.8.5'
 }
 
 jacocoTestReport {
@@ -168,4 +172,17 @@ artifactory {
         repoKey = 'jcenter'
     }
     clientConfig.info.setBuildNumber(System.getProperty('build.number'))
+}
+
+dependencyUpdates.resolutionStrategy {
+    componentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
+        }
+    }
 }
