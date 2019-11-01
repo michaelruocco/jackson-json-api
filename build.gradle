@@ -159,6 +159,9 @@ bintray {
             gpg {
                 sign = true
             }
+            mavenCentralSync {
+                sync = true
+            }
         }
     }
 }
