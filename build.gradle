@@ -15,6 +15,10 @@ apply plugin: 'maven-publish'
 group 'com.github.michaelruocco'
 
 scmVersion {
+    branchVersionCreator = [
+            'release': 'simple',
+            '//*': 'versionWithBranch'
+    ]
     tag {
         prefix = 'jackson-json-api'
     }
@@ -146,7 +150,7 @@ bintray {
     key = System.getenv('BINTRAY_KEY')
     publications = ['mavenPublication']
     publish = true
-    
+
     pkg {
         repo = 'maven'
         name = 'jackson-json-api'
