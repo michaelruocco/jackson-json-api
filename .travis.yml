@@ -1,9 +1,7 @@
 language: java
 jdk: openjdk8
+install: true
 sudo: false
-
-install:
-  - git checkout $TRAVIS_BRANCH
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -19,8 +17,10 @@ after_success:
 
 stages:
   - name: build
+
   - name: snapshot
-    if: branch = master
+    if: branch != release
+
   - name: release
     if: branch = release
 
@@ -28,10 +28,13 @@ jobs:
   include:
     - stage: build
       script: ./gradlew currentVersion spotlessCheck build dependencyUpdates
+
     - stage: snapshot
       script: ./gradlew artifactoryPublish -x test -Dbuild.number=$TRAVIS_BUILD_NUMBER
+
     - stage: release
       script:
         - >
+          git checkout $TRAVIS_BRANCH
           ./gradlew release -Prelease.disableRemoteCheck -Prelease.customUsername=$GITHUB_TOKEN;
           ./gradlew bintrayUpload -x test -Dbuild.number=$TRAVIS_BUILD_NUMBER
