@@ -15,10 +15,7 @@ apply plugin: 'maven-publish'
 group 'com.github.michaelruocco'
 
 scmVersion {
-    branchVersionCreator = [
-            'release': 'simple',
-            '//*': 'versionWithBranch'
-    ]
+    versionCreator 'versionWithBranch'
     tag {
         prefix = 'jackson-json-api'
     }
