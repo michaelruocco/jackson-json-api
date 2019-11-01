@@ -1,6 +1,5 @@
 language: java
 jdk: openjdk8
-install: true
 sudo: false
 
 before_cache:
@@ -35,6 +34,6 @@ jobs:
     - stage: release
       script:
         - >
-          git checkout $TRAVIS_BRANCH
+          git checkout $TRAVIS_BRANCH;
           ./gradlew release -Prelease.disableRemoteCheck -Prelease.customUsername=$GITHUB_TOKEN;
           ./gradlew bintrayUpload -x test -Dbuild.number=$TRAVIS_BUILD_NUMBER
