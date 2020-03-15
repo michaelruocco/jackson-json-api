@@ -1,12 +1,11 @@
 plugins {
     id 'java'
-    id 'com.diffplug.gradle.spotless' version '3.25.0'
-    id 'com.github.ben-manes.versions' version '0.27.0'
+    id 'com.diffplug.gradle.spotless' version '3.27.2'
+    id 'com.github.ben-manes.versions' version '0.28.0'
     id 'jacoco'
-    id 'com.github.kt3k.coveralls' version '2.8.4'
     id 'com.jfrog.bintray' version '1.8.4'
-    id 'com.jfrog.artifactory' version '4.10.0'
-    id 'pl.allegro.tech.build.axion-release' version '1.10.2'
+    id 'com.jfrog.artifactory' version '4.14.1'
+    id 'pl.allegro.tech.build.axion-release' version '1.11.0'
 }
 
 apply plugin: 'jacoco'
@@ -22,31 +21,31 @@ scmVersion {
 }
 project.version = scmVersion.version
 
-sourceCompatibility = 8
-targetCompatibility = 8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
 
-    compileOnly 'org.projectlombok:lombok:1.18.10'
-    testCompileOnly 'org.projectlombok:lombok:1.18.10'
-    annotationProcessor 'org.projectlombok:lombok:1.18.10'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.10.0'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.10.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.3'
 
-    testCompile 'org.assertj:assertj-core:3.14.0'
-    testCompile 'nl.jqno.equalsverifier:equalsverifier:3.1.10'
+    testCompile 'org.assertj:assertj-core:3.15.0'
+    testCompile 'nl.jqno.equalsverifier:equalsverifier:3.1.13'
     testCompile 'com.github.michaelruocco:file-loader:5.0.1'
-    testCompile 'net.javacrumbs.json-unit:json-unit-assertj:2.11.0'
-    testCompile 'org.slf4j:slf4j-simple:1.7.29'
-    testCompile 'org.mockito:mockito-core:3.1.0'
+    testCompile 'net.javacrumbs.json-unit:json-unit-assertj:2.14.0'
+    testCompile 'org.slf4j:slf4j-simple:1.7.30'
+    testCompile 'org.mockito:mockito-core:3.3.3'
 }
 
 test {

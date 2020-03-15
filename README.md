@@ -35,7 +35,7 @@ Additionally you can run a small set of code cleaning rules that will clean
 up things like spacing and other minor elements by running
 
 ```
-gradlew clean build spotlessApply
+gradlew clean spotlessApply build
 ```
 
 ## Checking dependencies
