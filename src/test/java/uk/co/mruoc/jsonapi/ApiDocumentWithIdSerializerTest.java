@@ -4,27 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
-import uk.co.mruoc.jsonapi.fake.FakeApiDocument;
 import uk.co.mruoc.jsonapi.fake.FakeApiDocumentWithId;
 import uk.co.mruoc.jsonapi.fake.FakeApiModuleObjectMapperFactory;
 import uk.co.mruoc.jsonapi.fake.FakeDomainObjectMother;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
-class ApiDocumentSerializerTest {
+class ApiDocumentWithIdSerializerTest {
 
     private final FakeApiModuleObjectMapperFactory factory = new FakeApiModuleObjectMapperFactory();
-
-    @Test
-    void shouldSerializeJsonApiDocumentWithoutId() throws JsonProcessingException {
-        final ObjectMapper mapper = factory.withNoOpIdParser();
-        final FakeApiDocument document = new FakeApiDocument(FakeDomainObjectMother.nullId());
-
-        final String json = mapper.writeValueAsString(document);
-
-        final String expectedJson = ContentLoader.loadContentFromClasspath("fake-attributes-document-without-id.json");
-        assertThatJson(json).isEqualTo(expectedJson);
-    }
 
     @Test
     void shouldSerializeJsonApiDocumentWithUuidId() throws JsonProcessingException {
@@ -51,7 +39,7 @@ class ApiDocumentSerializerTest {
     @Test
     void shouldSerializeJsonApiDocumentWithNumericId() throws JsonProcessingException {
         final ObjectMapper mapper = factory.withNumericIdParser();
-        final FakeApiDocumentWithId document = new FakeApiDocumentWithId(FakeDomainObjectMother.numericId1());
+        final FakeApiDocumentWithId  document = new FakeApiDocumentWithId(FakeDomainObjectMother.numericId1());
 
         final String json = mapper.writeValueAsString(document);
 

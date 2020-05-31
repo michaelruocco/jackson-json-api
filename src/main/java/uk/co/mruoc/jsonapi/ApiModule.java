@@ -13,7 +13,7 @@ public class ApiModule extends SimpleModule {
 
     public ApiModule() {
         setMixInAnnotation(ApiDocument.class, ApiDocumentMixin.class);
-        setMixInAnnotation(ApiDocumentWithId.class, ApiDocumentMixin.class);
+        setMixInAnnotation(ApiDocumentWithId.class, ApiDocumentWithIdMixin.class);
 
         setMixInAnnotation(ApiBatchDocument.class, ApiBatchDocumentMixin.class);
         setMixInAnnotation(ApiBatchDocumentWithId.class, ApiBatchDocumentMixin.class);
