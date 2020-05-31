@@ -6,6 +6,6 @@ public interface ApiErrorDocument {
 
     Collection<ApiError> getErrors();
 
-    int getStatus();
+    String getStatus();
 
 }

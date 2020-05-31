@@ -8,7 +8,7 @@ class UnprocessableEntityErrorItemTest {
 
     private static final String TITLE = "My Title";
     private static final String DETAIL = "my detail";
-    private static final int STATUS = 422;
+    private static final String STATUS = "422";
 
     private final ApiError item = new UnprocessableEntityError(TITLE, DETAIL);
 

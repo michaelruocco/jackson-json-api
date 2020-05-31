@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class NotFoundError extends ApiError {
 
-    private static final int STATUS = 404;
+    private static final String STATUS = "404";
 
     public NotFoundError(final String title, final String detail) {
         this(UUID.randomUUID(), title, detail);

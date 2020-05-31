@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class UnprocessableEntityError extends ApiError {
 
-    private static final int STATUS = 422;
+    private static final String STATUS = "422";
 
     public UnprocessableEntityError(final String title, final String detail) {
         this(UUID.randomUUID(), title, detail);

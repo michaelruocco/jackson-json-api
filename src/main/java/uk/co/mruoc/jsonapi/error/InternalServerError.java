@@ -7,7 +7,7 @@ import java.util.UUID;
 public class InternalServerError extends ApiError {
 
     private static final String TITLE = "Internal Server Error";
-    private static final int STATUS = 500;
+    private static final String STATUS = "500";
 
     public InternalServerError(final String detail) {
         this(UUID.randomUUID(), detail);

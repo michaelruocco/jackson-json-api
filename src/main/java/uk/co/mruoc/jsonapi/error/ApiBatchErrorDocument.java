@@ -23,15 +23,15 @@ public class ApiBatchErrorDocument implements ApiErrorDocument {
     }
 
     @Override
-    public int getStatus() {
-        final List<Integer> distinctStatusValues = getDistinctStatusValues();
+    public String getStatus() {
+        final List<String> distinctStatusValues = getDistinctStatusValues();
         if (distinctStatusValues.size() == 1) {
             return distinctStatusValues.get(0);
         }
-        return 207;
+        return "207";
     }
 
-    private List<Integer> getDistinctStatusValues() {
+    private List<String> getDistinctStatusValues() {
         return errors.stream()
                 .map(ApiError::getStatus)
                 .distinct()

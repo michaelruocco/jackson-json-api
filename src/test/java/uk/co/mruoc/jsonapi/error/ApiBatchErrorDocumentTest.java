@@ -27,8 +27,7 @@ class ApiBatchErrorDocumentTest {
 
         final ApiErrorDocument document = new ApiBatchErrorDocument(error1, error2);
 
-        final int multiStatus = 207;
-        assertThat(document.getStatus()).isEqualTo(multiStatus);
+        assertThat(document.getStatus()).isEqualTo("207");
     }
 
 }
