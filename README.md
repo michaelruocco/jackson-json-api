@@ -17,7 +17,7 @@ gradle you would do this by adding the following to your build.gradle file:
 
 ```
 dependencies {
-    compile 'com.github.michaelruocco:jackson-json-api:2.0.0'
+    compile 'com.github.michaelruocco:jackson-json-api:{latest-version}'
 }
 ```
 
