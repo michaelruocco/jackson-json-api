@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'com.diffplug.gradle.spotless' version '3.27.2'
     id 'com.github.ben-manes.versions' version '0.28.0'
     id 'jacoco'
@@ -29,23 +29,23 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
-
     compileOnly 'org.projectlombok:lombok:1.18.12'
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.10.3'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.10.3'
+    api 'com.fasterxml.jackson.core:jackson-databind:2.10.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.3'
+    implementation 'org.apache.commons:commons-collections4:4.4'
 
-    testCompile 'org.assertj:assertj-core:3.15.0'
-    testCompile 'nl.jqno.equalsverifier:equalsverifier:3.1.13'
-    testCompile 'com.github.michaelruocco:file-loader:5.0.1'
-    testCompile 'net.javacrumbs.json-unit:json-unit-assertj:2.14.0'
-    testCompile 'org.slf4j:slf4j-simple:1.7.30'
-    testCompile 'org.mockito:mockito-core:3.3.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+    testImplementation 'org.assertj:assertj-core:3.15.0'
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.1.13'
+    testImplementation 'com.github.michaelruocco:file-loader:5.0.1'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.14.0'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.30'
+    testImplementation 'org.mockito:mockito-core:3.3.3'
 }
 
 test {

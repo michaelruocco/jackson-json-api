@@ -12,7 +12,7 @@ class ApiDataWithIdTest {
     private static final String TYPE = "fake-type";
     private static final String ATTRIBUTES = "fake-attributes";
 
-    private final ApiDataWithId<Object> data = new ApiDataWithId<>(ID, TYPE, ATTRIBUTES);
+    private final ApiDataWithId<String, Object> data = new ApiDataWithId<>(ID, TYPE, ATTRIBUTES);
 
     @Test
     void shouldReturnId() {

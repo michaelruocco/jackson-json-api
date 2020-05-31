@@ -7,9 +7,9 @@ import uk.co.mruoc.jsonapi.batch.ApiBatchDocumentWithId;
 import java.util.Collection;
 
 @NoArgsConstructor(force = true)
-public class MyApiBatchDocumentWithId extends ApiBatchDocumentWithId<FakeAttributes> {
+public class MyApiBatchDocumentWithId extends ApiBatchDocumentWithId<Object, FakeAttributes> {
 
-    public MyApiBatchDocumentWithId(final Collection<ApiDataWithId<FakeAttributes>> data) {
+    public MyApiBatchDocumentWithId(final Collection<ApiDataWithId<Object, FakeAttributes>> data) {
         super(data);
     }
 

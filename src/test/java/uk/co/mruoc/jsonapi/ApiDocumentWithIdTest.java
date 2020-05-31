@@ -11,11 +11,16 @@ class ApiDocumentWithIdTest {
     private static final String ATTRIBUTES = "fake-attributes";
 
 
-    private final ApiDocumentWithId<Object> item = new ApiDocumentWithId<>(new ApiDataWithId<>(ID, TYPE, ATTRIBUTES));
+    private final ApiDocumentWithId<String, Object> item = new ApiDocumentWithId<>(new ApiDataWithId<>(ID, TYPE, ATTRIBUTES));
 
     @Test
     void shouldReturnAttributes() {
         assertThat(item.getAttributes()).isEqualTo(ATTRIBUTES);
+    }
+
+    @Test
+    void shouldReturnId() {
+        assertThat(item.getId()).isEqualTo(ID);
     }
 
 }

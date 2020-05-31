@@ -7,12 +7,16 @@ import lombok.RequiredArgsConstructor;
 @NoArgsConstructor(force = true)
 @RequiredArgsConstructor
 @Data
-public class ApiDocumentWithId<T> {
+public class ApiDocumentWithId<I, T> {
 
-    private final ApiDataWithId<T> data;
+    private final ApiDataWithId<I, T> data;
 
     public T getAttributes() {
         return data.getAttributes();
+    }
+
+    public I getId() {
+        return data.getId();
     }
 
 }

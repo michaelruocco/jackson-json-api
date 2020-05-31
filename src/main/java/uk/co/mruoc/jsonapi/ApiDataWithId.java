@@ -9,13 +9,17 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Data
-public class ApiDataWithId<T> extends ApiData<T> {
+public class ApiDataWithId<I, T> extends ApiData<T> {
 
-    private final Object id;
+    private final I id;
 
-    public ApiDataWithId(final Object id, final String type, T attributes) {
+    public ApiDataWithId(final I id, final String type, T attributes) {
         super(type, attributes);
         this.id = id;
+    }
+
+    public I getId() {
+        return id;
     }
 
 }
