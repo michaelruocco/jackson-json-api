@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.file.content.ContentLoader;
 import uk.co.mruoc.jsonapi.ApiModule;
+import uk.co.mruoc.jsonapi.fake.error.FakeInternalServerError;
+import uk.co.mruoc.jsonapi.fake.error.FakeInternalServerErrorWithMeta;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 

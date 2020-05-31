@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class FakeApiDataWithId extends FakeApiData {
 
-    private final Object id;
+    private Object id;
 
     public FakeApiDataWithId(final FakeDomainObject attributes) {
         super(attributes);

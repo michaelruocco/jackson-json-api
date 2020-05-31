@@ -1,7 +1,6 @@
 package uk.co.mruoc.jsonapi.batch;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import uk.co.mruoc.jsonapi.ApiData;
@@ -12,7 +11,6 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor(force = true)
 @RequiredArgsConstructor
 @Data
 public class ApiBatchDocumentWithId<I, T> {

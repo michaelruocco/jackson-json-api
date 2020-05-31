@@ -1,7 +1,7 @@
 package uk.co.mruoc.jsonapi.fake;
 
-import uk.co.mruoc.jsonapi.batch.ApiBatchDocument;
 import uk.co.mruoc.jsonapi.ApiData;
+import uk.co.mruoc.jsonapi.batch.ApiBatchDocument;
 
 import java.util.Arrays;
 import java.util.Collection;

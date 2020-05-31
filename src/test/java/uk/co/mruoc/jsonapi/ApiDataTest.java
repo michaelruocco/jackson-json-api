@@ -24,7 +24,7 @@ class ApiDataTest {
     }
 
     @Test
-    void shouldBeEqualIfAllValuesAreTheSame() {
+    void shouldTestEquals() {
         EqualsVerifier.forClass(ApiData.class)
                 .suppress(Warning.STRICT_INHERITANCE)
                 .verify();

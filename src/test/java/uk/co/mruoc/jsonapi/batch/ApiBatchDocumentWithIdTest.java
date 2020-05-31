@@ -1,5 +1,7 @@
 package uk.co.mruoc.jsonapi.batch;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+import nl.jqno.equalsverifier.Warning;
 import org.junit.jupiter.api.Test;
 import uk.co.mruoc.jsonapi.ApiDataWithId;
 
@@ -58,6 +60,14 @@ class ApiBatchDocumentWithIdTest {
         final ApiBatchDocumentWithId<String, Object> document = toDocument();
 
         assertThat(document.getDataById("id")).isEmpty();
+    }
+
+    @Test
+    void shouldTestEquals() {
+        EqualsVerifier.forClass(ApiBatchDocumentWithId.class)
+                .withRedefinedSuperclass()
+                .suppress(Warning.STRICT_INHERITANCE)
+                .verify();
     }
 
     private static ApiDataWithId<String, Object> toData(final String id, final Object attributes) {

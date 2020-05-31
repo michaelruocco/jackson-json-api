@@ -35,7 +35,7 @@ class ApiDataWithIdTest {
     }
 
     @Test
-    void shouldBeEqualIfAllValuesAreTheSame() {
+    void shouldTestEquals() {
         EqualsVerifier.forClass(ApiDataWithId.class)
                 .withRedefinedSuperclass()
                 .suppress(Warning.STRICT_INHERITANCE)

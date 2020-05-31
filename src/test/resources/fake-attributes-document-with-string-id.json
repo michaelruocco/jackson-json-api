@@ -1,6 +1,6 @@
 {
   "data": {
-    "id": "my-id",
+    "id": "my-id-1",
     "type": "fake-attributes-type",
     "attributes": {
       "value1": "fake-value-1",

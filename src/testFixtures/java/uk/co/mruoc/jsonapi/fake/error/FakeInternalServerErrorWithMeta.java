@@ -1,16 +1,18 @@
-package uk.co.mruoc.jsonapi.error;
+package uk.co.mruoc.jsonapi.fake.error;
+
+import uk.co.mruoc.jsonapi.error.InternalServerError;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-class FakeInternalServerErrorWithMeta extends InternalServerError {
+public class FakeInternalServerErrorWithMeta extends InternalServerError {
 
     private static final UUID ID = UUID.fromString("74a8a129-a96b-4979-98c1-90d864dd47a4");
     private static final String DETAIL = "faked detail message";
     private static final Map<String, Object> META = buildMeta();
 
-    FakeInternalServerErrorWithMeta() {
+    public FakeInternalServerErrorWithMeta() {
         super(ID, DETAIL, META);
     }
 
