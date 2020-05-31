@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class InternalServerErrorItemTest {
 
     private static final String DETAIL = "my detail";
-    private static final String STATUS = "500";
+    private static final int STATUS = 500;
 
     private final ApiError item = new InternalServerError(DETAIL);
 

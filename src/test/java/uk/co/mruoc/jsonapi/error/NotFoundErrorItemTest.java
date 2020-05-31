@@ -8,7 +8,7 @@ class NotFoundErrorItemTest {
 
     private static final String TITLE = "My Title";
     private static final String DETAIL = "my detail";
-    private static final String STATUS = "404";
+    private static final int STATUS = 404;
 
     private final ApiError item = new NotFoundError(TITLE, DETAIL);
 

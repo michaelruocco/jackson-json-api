@@ -11,7 +11,7 @@ import java.util.UUID;
 public class ApiError {
 
     private final UUID id;
-    private final String status;
+    private final int status;
     private final String title;
     private final String detail;
     private final Map<String, Object> meta;

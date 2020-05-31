@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class BadRequestError extends ApiError {
 
-    private static final String STATUS = "400";
+    private static final int STATUS = 400;
 
     public BadRequestError(final String detail) {
         this(UUID.randomUUID(), "Bad Request", detail);

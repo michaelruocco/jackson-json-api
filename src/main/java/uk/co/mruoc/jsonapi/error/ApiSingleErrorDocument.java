@@ -17,7 +17,7 @@ public class ApiSingleErrorDocument implements ApiErrorDocument {
     }
 
     @Override
-    public String getStatus() {
+    public int getStatus() {
         return error.getStatus();
     }
 

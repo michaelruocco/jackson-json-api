@@ -8,7 +8,7 @@ class BadRequestErrorItemTest {
 
     private static final String TITLE = "My Title";
     private static final String DETAIL = "my detail";
-    private static final String STATUS = "400";
+    private static final int STATUS = 400;
 
     private final ApiError item = new BadRequestError(TITLE, DETAIL);
 
