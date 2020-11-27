@@ -17,34 +17,20 @@ your APIs.
 To use the library you will need to add a dependency to your project. In
 gradle you would do this by adding the following to your build.gradle file:
 
-```
+```gradle
 dependencies {
     compile 'com.github.michaelruocco:jackson-json-api:{latest-version}'
 }
 ```
 
-## Running the Tests
+## Useful Commands
 
-You can run the unit tests for this project by running:
-
-```
-gradlew clean build
-```
-
-## Cleaning up the code
-
-Additionally you can run a small set of code cleaning rules that will clean
-up things like spacing and other minor elements by running
-
-```
-gradlew clean spotlessApply build
-```
-
-## Checking dependencies
-
-You can check the current dependencies used by the project to see whether
-or not they are currently up to date by running the following command:
-
-```
-gradlew dependencyUpdates
+```gradle
+// cleans build directories
+// prints currentVersion
+// checks dependency versions
+// formats code
+// builds code
+// runs unit tests
+./gradlew clean currentVersion dependencyUpdates spotlessApply build
 ```
