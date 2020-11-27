@@ -1,6 +1,6 @@
 # Jackson JSON API
 
-[![Build](https://github.com/michaelruocco/jackson-json-api/workflows/build/badge.svg)](https://github.com/michaelruocco/jackson-json-api/actions)
+[![Build](https://github.com/michaelruocco/jackson-json-api/workflows/pipeline/badge.svg)](https://github.com/michaelruocco/jackson-json-api/actions)
 [![codecov](https://codecov.io/gh/michaelruocco/jackson-json-api/branch/master/graph/badge.svg)](https://codecov.io/gh/michaelruocco/jackson-json-api)
 [![BCH compliance](https://bettercodehub.com/edge/badge/michaelruocco/jackson-json-api?branch=master)](https://bettercodehub.com/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/082023bfbd484b058a24eca04b215572)](https://www.codacy.com/manual/michaelruocco/jackson-json-api?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/jackson-json-api&amp;utm_campaign=Badge_Grade)
