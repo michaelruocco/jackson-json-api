@@ -32,5 +32,5 @@ dependencies {
 // formats code
 // builds code
 // runs unit tests
-./gradlew clean currentVersion dependencyUpdates spotlessApply build
+./gradlew clean currentVersion dependencyUpdates spotlessApply lintGradle build
 ```

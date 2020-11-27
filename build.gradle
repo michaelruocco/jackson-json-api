@@ -19,6 +19,7 @@ plugins {
     id "com.jfrog.bintray" version "1.8.5"
     id "com.jfrog.artifactory" version "4.18.1"
     id "pl.allegro.tech.build.axion-release" version "1.12.1"
+    id "nebula.lint" version "16.15.9"
 }
 
 group "com.github.michaelruocco"
@@ -42,6 +43,11 @@ ext {
     junitVersion = "5.7.0"
 }
 
+gradleLint {
+    rules = ['all-dependency']
+    alwaysRun = false
+}
+
 dependencies {
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
@@ -50,19 +56,23 @@ dependencies {
 
     api "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
     implementation "org.apache.commons:commons-collections4:4.4"
 
+    testRuntimeOnly "org.slf4j:slf4j-simple:1.7.30"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.assertj:assertj-core:3.18.1"
     testImplementation "nl.jqno.equalsverifier:equalsverifier:3.5"
     testImplementation "com.github.michaelruocco:file-loader:6.0.1"
     testImplementation "net.javacrumbs.json-unit:json-unit-assertj:2.21.0"
-    testImplementation "org.slf4j:slf4j-simple:1.7.30"
     testImplementation "org.mockito:mockito-core:3.6.28"
 
     testFixturesCompileOnly "org.projectlombok:lombok:${lombokVersion}"
     testFixturesAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testFixturesImplementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    testFixturesImplementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    testFixturesImplementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
 }
 
 
