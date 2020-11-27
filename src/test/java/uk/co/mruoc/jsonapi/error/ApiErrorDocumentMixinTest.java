@@ -10,7 +10,7 @@ import uk.co.mruoc.jsonapi.fake.error.FakeErrorDocument;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 
-class ApiErrorDocumentMixinText {
+class ApiErrorDocumentMixinTest {
 
     private static final ObjectMapper MAPPER = buildMapper();
 

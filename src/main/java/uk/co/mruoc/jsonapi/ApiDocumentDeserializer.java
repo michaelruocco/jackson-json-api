@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class ApiDocumentDeserializer<D> extends StdDeserializer<D> {
 
-    private final ApiDocumentFactory<D> documentFactory;
+    private final transient ApiDocumentFactory<D> documentFactory;
 
     public ApiDocumentDeserializer(final Class<D> type,
                                    final ApiDocumentFactory<D> documentFactory) {

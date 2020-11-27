@@ -32,7 +32,7 @@ class ApiDocumentDefaultDeserializationTest {
 
         final FakeApiDocument document = mapper.readValue(json, FakeApiDocument.class);
 
-        assertThat(document.getAttributes()).isEqualToComparingFieldByField(FakeDomainObjectMother.uuidId1());
+        assertThat(document.getAttributes()).usingRecursiveComparison().isEqualTo(FakeDomainObjectMother.uuidId1());
     }
 
     @Test
@@ -52,7 +52,7 @@ class ApiDocumentDefaultDeserializationTest {
 
         final FakeApiDocument document = mapper.readValue(json, FakeApiDocument.class);
 
-        assertThat(document.getAttributes()).isEqualToComparingFieldByField(FakeDomainObjectMother.numericId1());
+        assertThat(document.getAttributes()).usingRecursiveComparison().isEqualTo(FakeDomainObjectMother.numericId1());
     }
 
 }

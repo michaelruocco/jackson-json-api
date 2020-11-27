@@ -31,7 +31,7 @@ class ApiDataWithIdTest {
 
     @Test
     void shouldPrintValues() {
-        assertThat(data.toString()).isEqualTo("ApiDataWithId(super=ApiData(type=fake-type, attributes=fake-attributes), id=fake-id)");
+        assertThat(data.toString()).hasToString("ApiDataWithId(super=ApiData(type=fake-type, attributes=fake-attributes), id=fake-id)");
     }
 
     @Test
