@@ -10,7 +10,7 @@
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=michaelruocco_jackson-json-api&metric=ncloc)](https://sonarcloud.io/dashboard?id=michaelruocco_jackson-json-api)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.michaelruocco/jackson-json-api/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.michaelruocco/jackson-json-api)
 [![JCenter](https://api.bintray.com/packages/michaelruocco/maven/jackson-json-api/images/download.svg) ](https://bintray.com/michaelruocco/maven/jackson-json-api/_latestVersion)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is a java library that aims at handling most of the boilerplate code
 that is required if you are using the JSON API specification when building
