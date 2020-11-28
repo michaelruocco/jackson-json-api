@@ -117,8 +117,8 @@ java {
 def pomConfig = {
     licenses {
         license {
-            name "GNU License"
-            url "https://www.gnu.org/licenses/gpl-3.0"
+            name "MIT License"
+            url "https://opensource.org/licenses/MIT"
             distribution "repo"
         }
     }
@@ -161,7 +161,7 @@ bintray {
         repo = "maven"
         name = "jackson-json-api"
         userOrg = "michaelruocco"
-        licenses = ["gnu"]
+        licenses = ["mit"]
         vcsUrl = "https://github.com/michaelruocco/jackson-json-api.git"
         version {
             name = project.version
